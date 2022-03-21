@@ -20,9 +20,7 @@ const SingleTodo = ({todo, todos, setTodos, index}: Props) => {
 	const [edit, setEdit] = useState<boolean>(false)
 	const [editTodo, setEditTodo] = useState<string>(todo.name)
 
-	// const handleEdit = (id:number) => {
-	// 	setTodos(todos.map((todo) => todo.id === id ? {...todo, name: } : todo))
-	// }
+	
 	const handleDelete = (id:number) => {
 		setTodos(todos.filter((todo) => todo.id !== id));
 	}
@@ -34,9 +32,7 @@ const SingleTodo = ({todo, todos, setTodos, index}: Props) => {
 	const handleEdit = (e: React.FormEvent, id:number) => {
 		e.preventDefault();
 
-		// setTodos(todos.map((todo) => {
-		// 	todo.id === id ? {...todo, todo.name: editTodo} : todo
-		// }))
+		
 		setTodos(todos.map((todo) => todo.id === id ? {...todo, name : editTodo} : todo))
 
 		setEdit(false);
@@ -75,7 +71,7 @@ const SingleTodo = ({todo, todos, setTodos, index}: Props) => {
 
 			}
 
-			<div>
+			<div className="todos__single--icons" >
 				<span className="icon">
 					<AiFillEdit onClick={() => {
 						if(!edit && !todo.isDone) {
@@ -92,7 +88,7 @@ const SingleTodo = ({todo, todos, setTodos, index}: Props) => {
 				</span>
 			</div>
 		</form>
-			)}
+		)}
 		
 		</Draggable>
 	)
